@@ -1,7 +1,9 @@
 body{
-    /* background-color: black;
-    color: white; */
+    text-align: center;  
+    background-image:linear-gradient(to right, rgba(167, 175, 175, 0), rgb(84, 152, 161));
+    /* 'bg-gradient-to-r from-emerald-400 to-cyan-400' */
 }
+
 h1{
     text-align: center;
 }
@@ -10,22 +12,42 @@ input{
     background-color: rgb(160, 154, 228);
     border-radius: 25px;
     width: 13rem;
-    display: flex;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 100px 0 0;
+
 }
+
+form{
+    justify-content: center;
+}
+
 label{
     display:flex;
     margin-bottom: 5px;
     font-weight: bold;
     font-size: large;
+    justify-content: center;
 }
 
 button{
+    margin: 10px;
     background-color: rgb(44, 138, 166);
     color: white;
     font-size: medium;
+    padding: 5px;
 }
 
-canvas{
-    height: 400px;
-    width: 400px;
+
+.show-list{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: center;
+    flex-basis: content;
+}
+
+.show{
+    padding: 1em;
 }
