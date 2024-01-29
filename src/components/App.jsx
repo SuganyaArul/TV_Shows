@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./Header";
 import ShowsList from "./ShowsList";
 import ShowsSearch from "./ShowsSearch";
+import '../App.css'
 
 function App() {
 
