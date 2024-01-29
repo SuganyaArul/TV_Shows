@@ -28,7 +28,7 @@ export default function ShowsList({shows}){
     })}
 
     </ol>
-    {ShowsList.length===0?
+    {shows.length!==0?
     <h2>Average TV Show Rating Chart</h2>:null}
     <Doughnut 
     data={chartData}
