@@ -39,7 +39,7 @@ button{
 }
 
 
-.show-list{
+.show-list,.people-list{
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
@@ -48,6 +48,7 @@ button{
     flex-basis: content;
 }
 
-.show{
+.show,.person{
     padding: 1em;
 }
+

@@ -2,7 +2,7 @@ import Shows from "./Shows";
 import Chart from "./Chart";
 
 export default function ShowsList({ shows }) {
-
+    
   return (
     <>
       <ol className="show-list">

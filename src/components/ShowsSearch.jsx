@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ShowsSearch({ searchShows, setSearchShows }) {
+export default function ShowsSearch({  setSearchShows }) {
   const [inputShow, setInputShow] = useState("");
 
   function handleSubmit(event) {
