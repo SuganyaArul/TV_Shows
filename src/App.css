@@ -1,0 +1,31 @@
+body{
+    /* background-color: black;
+    color: white; */
+}
+h1{
+    text-align: center;
+}
+
+input{
+    background-color: rgb(160, 154, 228);
+    border-radius: 25px;
+    width: 13rem;
+    display: flex;
+}
+label{
+    display:flex;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: large;
+}
+
+button{
+    background-color: rgb(44, 138, 166);
+    color: white;
+    font-size: medium;
+}
+
+canvas{
+    height: 400px;
+    width: 400px;
+}
