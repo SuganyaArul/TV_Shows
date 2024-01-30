@@ -5,6 +5,7 @@ import ShowsSearch from "./ShowsSearch";
 import '../App.css';
 import PeopleSearch from "./PeopleSearch";
 import PeopleList from "./PeopleList";
+import getData from "../utils/utils";
 
 function App() {
 
@@ -14,22 +15,18 @@ function App() {
   const [searchPeople, setSearchPeople] = useState('');
 
   useEffect(() => {
-    fetch(`https://api.tvmaze.com/search/shows?q=${searchShows}`)
-    .then((response) => {
-      return response.json()
-    }).then((body) => {
-      setShows(body)
-    })
-  }, [searchShows])
-
-  useEffect(() =>{
-    fetch(`https://api.tvmaze.com/search/people?q=${searchPeople}`)
-    .then((response) => {
-      return response.json()
-    }).then((body) => {
+    getData(searchShows,searchPeople).then((body) => {
+      console.log(body);
+      searchShows?setShows(body):
       setPeople(body)
     })
-  },[searchPeople])
+  }, [searchShows,searchPeople])
+
+  // useEffect(() =>{
+  //   getData(searchPeople).then((body) => {
+  //     setPeople(body)
+  //   })
+  // },[searchPeople])
 
   return (<>
   <Header />
