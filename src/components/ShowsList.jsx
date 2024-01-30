@@ -2,13 +2,12 @@ import Shows from "./Shows";
 import Chart from "./Chart";
 
 export default function ShowsList({ shows }) {
-    
   return (
     <>
       <ol className="show-list">
         {shows.map((show) => {
           const {
-            show: { name, rating, genres, image ,id},
+            show: { name, rating, genres, image, id },
           } = show;
           return (
             <Shows
@@ -21,8 +20,11 @@ export default function ShowsList({ shows }) {
           );
         })}
       </ol>
-      {shows.length !== 0 ? <><h2>Average TV Show Rating Chart</h2> <Chart shows={shows}/> </>: null}
-      
+      {shows.length !== 0 ? (
+        <>
+          <h2>Average TV Show Rating Chart</h2> <Chart shows={shows} />{" "}
+        </>
+      ) : null}
     </>
   );
 }
