@@ -18,15 +18,18 @@ function App() {
     })
   }, [searchTerm,activeTab])
 
+  function handleTabChange(tab){
+    setSearchTerm('');
+    setActiveTab(tab);
+    setResult([])
+  }
   return (<>
   <Header />
 
-  <button onClick={()=>{setSearchTerm('');
-    setActiveTab('people')}}>
+  <button onClick={()=>{handleTabChange('people')}}>
     Click to search People
     </button>
-  <button onClick={()=>{setSearchTerm('');
-      setActiveTab('shows')}}>
+  <button onClick={()=>{handleTabChange('shows')}}>
       Click to search Shows
       </button>
   <SearchInput setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>

@@ -7,7 +7,6 @@ export default function ShowsList({ shows }) {
     <>
       <ol className="show-list">
         {shows.map((show) => {
-          // console.log(show);
           const {
             show: { name, rating, genres, image ,id},
           } = show;
