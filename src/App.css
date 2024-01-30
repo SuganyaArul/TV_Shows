@@ -10,12 +10,16 @@ h1{
 
 input{
     background-color: rgb(160, 154, 228);
-    border-radius: 25px;
+    border-radius: 15px;
     width: 13rem;
     display: block;
     margin: 0 auto;
     padding: 10px 100px 0 0;
 
+}
+
+#searchShows{
+    padding: 0 5px ;
 }
 
 form{

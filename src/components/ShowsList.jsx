@@ -8,15 +8,15 @@ export default function ShowsList({ shows }) {
       <ol className="show-list">
         {shows.map((show) => {
           const {
-            show: { name, rating, genres, image:{medium} },
+            show: { name, rating, genres, image ,id},
           } = show;
           return (
             <Shows
-              key={`${name}-${rating}`}
+              key={`${name}-${id}`}
               name={name}
               rating={rating}
               genres={genres}
-              medium={medium}
+              image={image}
             />
           );
         })}

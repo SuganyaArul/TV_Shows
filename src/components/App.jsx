@@ -1,42 +1,43 @@
 import { useEffect, useState } from "react";
 import Header from "./Header";
 import ShowsList from "./ShowsList";
-import ShowsSearch from "./ShowsSearch";
 import '../App.css';
-import PeopleSearch from "./PeopleSearch";
 import PeopleList from "./PeopleList";
+import getData from "../utils/utils";
+import SearchInput from "./SearchInput";
 
 function App() {
 
-  const [shows, setShows] = useState([])
-  const [searchShows, setSearchShows] = useState('');
-  const [people, setPeople] = useState([]);
-  const [searchPeople, setSearchPeople] = useState('');
+  const [searchTerm,setSearchTerm] = useState('');
+  const [result, setResult] =useState([]);
+  const [activeTab, setActiveTab]= useState('shows');
 
   useEffect(() => {
-    fetch(`https://api.tvmaze.com/search/shows?q=${searchShows}`)
-    .then((response) => {
-      return response.json()
-    }).then((body) => {
-      setShows(body)
+    getData(activeTab,searchTerm).then((body) => {
+      setResult(body);
     })
-  }, [searchShows])
+  }, [searchTerm,activeTab])
 
-  useEffect(() =>{
-    fetch(`https://api.tvmaze.com/search/people?q=${searchPeople}`)
-    .then((response) => {
-      return response.json()
-    }).then((body) => {
-      setPeople(body)
-    })
-  },[searchPeople])
-
+  function handleTabChange(tab){
+    setSearchTerm('');
+    setActiveTab(tab);
+    setResult([])
+  }
   return (<>
   <Header />
-  <ShowsSearch setSearchShows={setSearchShows}/>
-  <PeopleSearch setSearchPeople={setSearchPeople}/>
-  <PeopleList people={people}/>
-  <ShowsList shows={shows}  />
+
+  <button onClick={()=>{handleTabChange('people')}}>
+    Click to search People
+    </button>
+  <button onClick={()=>{handleTabChange('shows')}}>
+      Click to search Shows
+      </button>
+  <SearchInput setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+  {
+    activeTab === 'shows'?
+    <ShowsList shows={result}  />:
+    <PeopleList people={result}/>
+  }
   </>)
 }
 
