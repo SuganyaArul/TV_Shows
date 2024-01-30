@@ -1,39 +1,40 @@
 import { useEffect, useState } from "react";
 import Header from "./Header";
 import ShowsList from "./ShowsList";
-import ShowsSearch from "./ShowsSearch";
 import '../App.css';
-import PeopleSearch from "./PeopleSearch";
 import PeopleList from "./PeopleList";
 import getData from "../utils/utils";
+import SearchInput from "./SearchInput";
 
 function App() {
 
-  const [shows, setShows] = useState([])
-  const [searchShows, setSearchShows] = useState('');
-  const [people, setPeople] = useState([]);
-  const [searchPeople, setSearchPeople] = useState('');
+  const [searchTerm,setSearchTerm] = useState('');
+  const [result, setResult] =useState([]);
+  const [activeTab, setActiveTab]= useState('shows');
 
   useEffect(() => {
-    getData(searchShows,searchPeople).then((body) => {
-      console.log(body);
-      searchShows?setShows(body):
-      setPeople(body)
+    getData(activeTab,searchTerm).then((body) => {
+      setResult(body);
     })
-  }, [searchShows,searchPeople])
-
-  // useEffect(() =>{
-  //   getData(searchPeople).then((body) => {
-  //     setPeople(body)
-  //   })
-  // },[searchPeople])
+  }, [searchTerm,activeTab])
 
   return (<>
   <Header />
-  <ShowsSearch setSearchShows={setSearchShows}/>
-  <PeopleSearch setSearchPeople={setSearchPeople}/>
-  <PeopleList people={people}/>
-  <ShowsList shows={shows}  />
+
+  <button onClick={()=>{setSearchTerm('');
+    setActiveTab('people')}}>
+    Click to search People
+    </button>
+  <button onClick={()=>{setSearchTerm('');
+      setActiveTab('shows')}}>
+      Click to search Shows
+      </button>
+  <SearchInput setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+  {
+    activeTab === 'shows'?
+    <ShowsList shows={result}  />:
+    <PeopleList people={result}/>
+  }
   </>)
 }
 

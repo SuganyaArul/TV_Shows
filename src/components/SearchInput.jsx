@@ -1,7 +1,6 @@
 import { useState } from "react";
-
-export default function ShowsSearch({  setSearchShows }) {
-  const [inputShow, setInputShow] = useState("");
+export default function SearchInput({setSearchTerm,searchTerm}){
+    
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,9 +14,9 @@ export default function ShowsSearch({  setSearchShows }) {
       <input
         id="searchShows"
         type="text"
-        value={inputShow}
+        value={searchTerm}
         onChange={(event) => {
-          setInputShow(event.target.value);
+            setSearchTerm(event.target.value);
         }}
       ></input>
       <button>Search</button>
