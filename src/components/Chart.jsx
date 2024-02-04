@@ -27,7 +27,7 @@ export default function Chart({ shows }) {
         data: shows.map((show) =>
           show.show.rating.average !== null ? show.show.rating.average : 0
         ),
-        backgroundColor: ["rgba(231, 84, 128, 0.6)"],
+        backgroundColor: ["rgba(21, 11, 157, 0.6)"],
       },
     ],
   };

@@ -19,7 +19,7 @@ export default function ShowIdList({ showId, searchTerm, err, setIsCast }) {
       ) : (
         <img alt="No image for This Shows" />
       )}
-      <ShowIdCast showId={showId} setIsCast={setIsCast} />
+      {/* <ShowIdCast showId={showId} setIsCast={setIsCast} /> */}
       {/* <ShowIdEpisodes showId={showId} /> */}
     </li>
   ) : (

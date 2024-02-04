@@ -1,4 +1,4 @@
-export default function Cast({name, image}){
-    console.log(name, image);
+export default function Cast({person, character}){
+    console.log(person, character);
 
 }

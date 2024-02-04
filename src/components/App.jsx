@@ -18,6 +18,7 @@ function App() {
   useEffect(() => {
     getData(activeTab, searchTerm, isCast)
       .then((body) => {
+        console.log(body);
         setResult(body);
       })
       .catch((error) => {

@@ -1,6 +1,8 @@
 body{
     text-align: center;  
-    background-image:linear-gradient(to right, rgba(167, 175, 175, 0), rgb(84, 152, 161));
+    background-image:url(rm301-beer-01.jpg)
+    /* linear-gradient(to right, rgba(167, 175, 175, 0), rgb(84, 152, 161)); */
+    /* animation: shimmer 2.5s infinite; */
     /* 'bg-gradient-to-r from-emerald-400 to-cyan-400' */
 }
 
@@ -50,9 +52,13 @@ button{
     padding: 0;
     justify-content: center;
     flex-basis: content;
+    
 }
 
 .show,.person{
     padding: 1em;
+    border: 1px solid rgb(170, 134, 19);
+    border-radius: 15px;
+    margin: 10px;
 }
 

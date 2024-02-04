@@ -13,18 +13,12 @@ export default function ShowIdCast({ showId, setIsCast }) {
       <button onClick={handleClick}>{isOpen ? "hide" : "show"} Cast</button>
       {isOpen ? (
         <div>
-          {console.log(showId._embedded)}
-          {showId._embedded !== undefined
-            ? showId._embedded.cast.map((people) => {
+          {/* console.log(showId._embedded) */}
+          {showId._embedded.cast.map((people) => {
                 console.log(people);
-                const  {person: { id}, character} = people
-                //     <Cast
-                //     key={`${id}`}
-                //     person={person}
-                //     character={character}
-                //   />
-              })
-            : null}
+                const  {person :{id}, character} = people
+                  return  <Cast key= {`${id}`} person={person} character={character} />
+              })}
         </div>
       ) : null}
     </>
